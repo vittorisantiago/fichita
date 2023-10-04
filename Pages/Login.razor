@@ -1,0 +1,85 @@
+﻿@page "/login"
+@using Microsoft.Extensions.Configuration
+@using System.Threading.Tasks
+@using TableroApuestas.Models
+@using TableroApuestas.Data
+@using System.Data
+@inject NavigationManager NavigationManager
+@inject IConfiguration Configuration
+@inject AccesoDatos AccesoDatos
+
+<title>Login - Apuestas</title>
+
+<head>
+    <link href="css/login.css" rel="stylesheet" />
+</head>
+
+<h1>Iniciar Sesión</h1>
+
+<form @onsubmit="Ingresar" class="login-form">
+    <div class="form-group">
+        <label for="nombre">Usuario</label>
+        <input type="text" id="nombre" class="form-control" @bind="usuario.nombre">
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" class="form-control" @bind="usuario.password">
+    </div>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger text-center" role="alert">
+        <span class="icono-advertencia">⚠️</span> @mensajeError
+    </div>
+}
+
+
+@code {
+    private Usuario usuario = new Usuario();
+    private string mensajeError = "";
+
+    private void Ingresar()
+    {
+        // Validar que el usuario y la contraseña no estén en blanco
+        if (string.IsNullOrWhiteSpace(usuario.nombre) || string.IsNullOrWhiteSpace(usuario.password))
+        {
+            mensajeError = "Por favor, ingrese usuario y contraseña.";
+            return;
+        }
+
+        // Obtener la cadena de conexión desde appsettings.json
+        string? connectionString = Configuration.GetConnectionString("MiConexion");
+
+        if (connectionString != null)
+        {
+            try
+            {
+                // Lógica para validar el usuario y contraseña
+                DataTable dataTable = AccesoDatos.ObtenerUsuarioPorNombreYPassword(usuario.nombre, usuario.password, connectionString);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    // Usuario válido, redireccionar a la página principal del tablero
+                    NavigationManager.NavigateTo("/tablero-principal");
+                }
+                else
+                {
+                    // Credenciales inválidas, mostrar mensaje de error
+                    mensajeError = "Credenciales incorrectas. Por favor, inténtalo de nuevo.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que pueda ocurrir durante la validación
+                mensajeError = "Ocurrió un error al procesar la solicitud. Por favor, inténtalo más tarde.";
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        else
+        {
+            mensajeError = "La cadena de conexión es nula. Verifica la configuración.";
+        }
+    }
+}

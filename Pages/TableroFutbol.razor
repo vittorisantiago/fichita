@@ -1,0 +1,93 @@
+﻿@page "/tablero-futbol"
+@using Microsoft.Extensions.Configuration
+@using System.Threading.Tasks
+@using TableroApuestas.Models
+@using TableroApuestas.Data
+@using System.Data
+@inject NavigationManager NavigationManager
+@inject IConfiguration Configuration
+@inject AccesoDatos AccesoDatos
+
+<title>Tablero Fútbol - Apuestas</title>
+
+<head>
+    <link href="css/tablero-futbol.css" rel="stylesheet" />
+</head>
+
+<h1 class="titulo">Tablero Fútbol</h1>
+
+@if (mostrarTablaMes)
+{
+    <h2>Tabla de Meses</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Mes</th>
+                <th>Monto</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mes in meses)
+            {
+                <tr>
+                    <td>@mes.Nombre</td>
+                    <td>@mes.Monto</td>
+                    <td><button @onclick="MostrarTablaLiga">Ver Liga</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (mostrarTablaLiga)
+{
+    <h2>Tabla de Ligas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Liga</th>
+                <th>Monto</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var liga in ligas)
+            {
+                <tr>
+                    <td>@liga.Nombre</td>
+                    <td>@liga.Monto</td>
+                    <td><button @onclick="MostrarTablaMes">Volver a Meses</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private bool mostrarTablaMes = true;
+    private bool mostrarTablaLiga = false;
+    private List<Mes> meses = new List<Mes>();
+    private List<Liga> ligas = new List<Liga>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Obtener los datos de los meses y sus montos
+        await ObtenerDatosMesesAsync();
+    }
+
+    private async Task ObtenerDatosMesesAsync()
+    {
+        meses = await AccesoDatos.ObtenerMesesAsync();
+    }
+
+    private void MostrarTablaLiga()
+    {
+        mostrarTablaMes = false;
+    }
+
+    private void MostrarTablaMes()
+    {
+        mostrarTablaMes = true;
+    }
+}

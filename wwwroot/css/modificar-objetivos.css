@@ -1,0 +1,104 @@
+/* Estilo para el fondo suave de toda la página */
+body {
+    background-color: #3082ac;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el título "Deportes" */
+.titulo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 48px;
+    color: cadetblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    outline: none;
+}
+
+/* Estilos para las tablas */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+    .tabla th, .tabla td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .tabla th {
+        background-color: cadetblue;
+        color: white;
+    }
+
+/* Otros estilos */
+.text-center {
+    text-align: center;
+}
+
+/* Estilos para el contenedor de los botones */
+.contenedor-botones {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 10px;
+}
+
+.guardar {
+    background-color: #eed408;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Elimina la subrayado de enlace */
+}
+
+    .guardar:hover {
+        background-color: #b6ff00;
+    }
+
+.volver {
+    background-color: #eed408;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Elimina la subrayado de enlace */
+}
+
+    .volver:hover {
+        background-color: #ff6a00;
+    }
+
+/* Estilo para el popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    width: 300px; /* Ancho deseado */
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+.popup-content {
+    padding: 10px;
+}

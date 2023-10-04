@@ -1,0 +1,144 @@
+/* Estilo para el fondo suave de toda la página */
+body {
+    background-color: #3082ac;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el título "Deportes" */
+.titulo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 48px;
+    color: cadetblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    outline: none;
+}
+
+/* Estilos para las secciones */
+.seccion {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los botones "Ver Detalle" */
+.ver-detalle {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .ver-detalle:hover {
+        background-color: #0056b3;
+    }
+
+/* Otros estilos */
+.text-center {
+    text-align: center;
+}
+
+/* Estilos para el contenedor de los botones */
+.contenedor-botones {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 10px;
+}
+
+/* Estilos para el botón "Modificar Objetivos" */
+.boton-modificar-objetivos {
+    background-color: #eed408;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Elimina la subrayado de enlace */
+}
+
+    .boton-modificar-objetivos:hover {
+        background-color: #d32f2f;
+    }
+
+.cumple-objetivo {
+    color: blue;
+    font-weight: bold;
+}
+
+.objetivo-superado {
+    color: green;
+    font-weight: bold;
+}
+
+.no-cumple-objetivo {
+    color: red;
+    font-weight: bold;
+}
+
+.ver-detalle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .ver-detalle:hover {
+        background-color: #0056b3;
+    }
+
+/* Estilos para las tablas */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+    .tabla th, .tabla td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .tabla th {
+        background-color: cadetblue;
+        color: white;
+    }
+
+    /* Añade estos estilos para centrar el contenido de las celdas */
+    .tabla td.objetivo, .tabla td.estado {
+        text-align: center;
+    }
+
+.ver-mas-button {
+    background-color: #eed408;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Elimina la subrayado de enlace */
+}
+
+    .ver-mas-button:hover {
+        background-color: #b6ff00;
+    }
