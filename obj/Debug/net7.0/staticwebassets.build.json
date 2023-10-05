@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q5nnxXcMsY5Z6OJk/AHyM9r2YrIdnxqZe/gbnZQqA2Q=",
+  "Hash": "uO9ME49vcjFRFzg6yC8TdWJUaltsUveGR0ASr3dEmMU=",
   "Source": "TableroApuestas",
   "BasePath": "_content/TableroApuestas",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-basquet.css",
+      "SourceId": "TableroApuestas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\",
+      "BasePath": "_content/TableroApuestas",
+      "RelativePath": "css/tablero-basquet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\tablero-basquet.css"
+    },
+    {
       "Identity": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-futbol.css",
       "SourceId": "TableroApuestas",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\tablero-principal.css"
+    },
+    {
+      "Identity": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-tenis.css",
+      "SourceId": "TableroApuestas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\",
+      "BasePath": "_content/TableroApuestas",
+      "RelativePath": "css/tablero-tenis.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\tablero-tenis.css"
     },
     {
       "Identity": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\favicon.ico",

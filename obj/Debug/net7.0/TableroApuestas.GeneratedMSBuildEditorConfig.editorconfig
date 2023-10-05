@@ -36,12 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kaWZpY2FyT2JqZXRpdm9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vitto/source/repos/TableroApuestas/Pages/TableroBasquet.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVyb0Jhc3F1ZXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vitto/source/repos/TableroApuestas/Pages/TableroFutbol.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVyb0Z1dGJvbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vitto/source/repos/TableroApuestas/Pages/TableroPrincipal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVyb1ByaW5jaXBhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vitto/source/repos/TableroApuestas/Pages/TableroTenis.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVyb1RlbmlzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vitto/source/repos/TableroApuestas/_Imports.razor]

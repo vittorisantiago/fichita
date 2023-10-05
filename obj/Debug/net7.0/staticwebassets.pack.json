@@ -25,12 +25,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-basquet.css",
+      "PackagePath": "staticwebassets\\css\\tablero-basquet.css"
+    },
+    {
       "Id": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-futbol.css",
       "PackagePath": "staticwebassets\\css\\tablero-futbol.css"
     },
     {
       "Id": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-principal.css",
       "PackagePath": "staticwebassets\\css\\tablero-principal.css"
+    },
+    {
+      "Id": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\css\\tablero-tenis.css",
+      "PackagePath": "staticwebassets\\css\\tablero-tenis.css"
     },
     {
       "Id": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\wwwroot\\favicon.ico",

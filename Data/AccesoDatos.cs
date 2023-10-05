@@ -190,7 +190,7 @@
             }
         }
 
-        public async Task<List<Liga>> ObtenerDatosLigasFutbolAsync()
+        public async Task<List<Liga>> ObtenerDatosLigasFutbolPorMesAsync(int idMes)
         {
             string consulta = @"
                 SELECT l.id_liga, l.nombre, SUM(ml.monto) AS monto_generado
@@ -198,7 +198,7 @@
                 INNER JOIN ligas AS l ON ml.id_liga = l.id_liga)
                 INNER JOIN deportes_liga AS dl ON l.id_liga = dl.id_liga)
                 INNER JOIN deportes AS d ON dl.id_deporte = d.id_deporte
-                WHERE d.nombre = 'futbol'
+                WHERE d.nombre = 'futbol' AND ml.id_mes = @idMes
                 GROUP BY l.id_liga, l.nombre
                 ORDER BY l.id_liga";
 
@@ -207,6 +207,7 @@
                 await connection.OpenAsync();
                 using (OleDbCommand command = new OleDbCommand(consulta, connection))
                 {
+                    command.Parameters.AddWithValue("@idMes", idMes);
                     DataTable dataTable = new DataTable();
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                     {
@@ -227,30 +228,18 @@
             }
         }
 
-        public async Task<decimal> ObtenerMontoMesFutbolAsync(int idMes)
+        public async Task<List<Mes>> ObtenerDatosMesesBasquetAsync()
         {
             string consulta = @"
-                SELECT SUM(monto) AS monto_mes
-                FROM mes_ligas
-                WHERE id_mes = @idMes";
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
-            {
-                await connection.OpenAsync();
-                using (OleDbCommand command = new OleDbCommand(consulta, connection))
-                {
-                    command.Parameters.AddWithValue("@idMes", idMes);
-                    object result = await command.ExecuteScalarAsync();
-                    return (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
-                }
-            }
-        }
-
-        public async Task<List<Mes>> ObtenerMesesAsync()
-        {
-            string consulta = @"
-        SELECT id_mes, nombre
-        FROM meses";
+        SELECT m.id_mes, m.nombre, SUM(ml.monto) AS monto_mes
+        FROM (((mes_ligas AS ml
+        INNER JOIN ligas AS l ON ml.id_liga = l.id_liga)
+        INNER JOIN deportes_liga AS dl ON l.id_liga = dl.id_liga)
+        INNER JOIN deportes AS d ON dl.id_deporte = d.id_deporte)
+        INNER JOIN meses AS m ON ml.id_mes = m.id_mes
+        WHERE d.nombre = 'basquet'
+        GROUP BY m.id_mes, m.nombre
+        ORDER BY m.id_mes";
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
@@ -269,9 +258,124 @@
                         {
                             Id = Convert.ToInt32(row["id_mes"]),
                             Nombre = row["nombre"].ToString(),
+                            Monto = Convert.ToDecimal(row["monto_mes"])
                         });
                     }
                     return meses;
+                }
+            }
+        }
+
+        public async Task<List<Liga>> ObtenerDatosLigasBasquetPorMesAsync(int idMes)
+        {
+            string consulta = @"
+        SELECT l.id_liga, l.nombre, SUM(ml.monto) AS monto_generado
+        FROM ((mes_ligas AS ml
+        INNER JOIN ligas AS l ON ml.id_liga = l.id_liga)
+        INNER JOIN deportes_liga AS dl ON l.id_liga = dl.id_liga)
+        INNER JOIN deportes AS d ON dl.id_deporte = d.id_deporte
+        WHERE d.nombre = 'basquet' AND ml.id_mes = @idMes
+        GROUP BY l.id_liga, l.nombre
+        ORDER BY l.id_liga";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (OleDbCommand command = new OleDbCommand(consulta, connection))
+                {
+                    command.Parameters.AddWithValue("@idMes", idMes);
+                    DataTable dataTable = new DataTable();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    List<Liga> ligas = new List<Liga>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        ligas.Add(new Liga
+                        {
+                            Id = Convert.ToInt32(row["id_liga"]),
+                            Nombre = row["nombre"].ToString(),
+                            Monto = Convert.ToDecimal(row["monto_generado"])
+                        });
+                    }
+                    return ligas;
+                }
+            }
+        }
+
+        public async Task<List<Mes>> ObtenerDatosMesesTenisAsync()
+        {
+            string consulta = @"
+            SELECT m.id_mes, m.nombre, SUM(ml.monto) AS monto_mes
+            FROM (((mes_ligas AS ml
+            INNER JOIN ligas AS l ON ml.id_liga = l.id_liga)
+            INNER JOIN deportes_liga AS dl ON l.id_liga = dl.id_liga)
+            INNER JOIN deportes AS d ON dl.id_deporte = d.id_deporte)
+            INNER JOIN meses AS m ON ml.id_mes = m.id_mes
+            WHERE d.nombre = 'tenis'
+            GROUP BY m.id_mes, m.nombre
+            ORDER BY m.id_mes";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (OleDbCommand command = new OleDbCommand(consulta, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    List<Mes> meses = new List<Mes>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        meses.Add(new Mes
+                        {
+                            Id = Convert.ToInt32(row["id_mes"]),
+                            Nombre = row["nombre"].ToString(),
+                            Monto = Convert.ToDecimal(row["monto_mes"])
+                        });
+                    }
+                    return meses;
+                }
+            }
+        }
+
+        public async Task<List<Liga>> ObtenerDatosLigasTenisPorMesAsync(int idMes)
+        {
+            string consulta = @"
+            SELECT l.id_liga, l.nombre, SUM(ml.monto) AS monto_generado
+            FROM ((mes_ligas AS ml
+            INNER JOIN ligas AS l ON ml.id_liga = l.id_liga)
+            INNER JOIN deportes_liga AS dl ON l.id_liga = dl.id_liga)
+            INNER JOIN deportes AS d ON dl.id_deporte = d.id_deporte
+            WHERE d.nombre = 'tenis' AND ml.id_mes = @idMes
+            GROUP BY l.id_liga, l.nombre
+            ORDER BY l.id_liga";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (OleDbCommand command = new OleDbCommand(consulta, connection))
+                {
+                    command.Parameters.AddWithValue("@idMes", idMes);
+                    DataTable dataTable = new DataTable();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    List<Liga> ligas = new List<Liga>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        ligas.Add(new Liga
+                        {
+                            Id = Convert.ToInt32(row["id_liga"]),
+                            Nombre = row["nombre"].ToString(),
+                            Monto = Convert.ToDecimal(row["monto_generado"])
+                        });
+                    }
+                    return ligas;
                 }
             }
         }
