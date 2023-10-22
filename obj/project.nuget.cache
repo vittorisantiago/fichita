@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y3OTVQRNhEIx/qHQWn6lYaib1dvixDjEQC/1K+Hahdb3YhjMkG6n+2RS4Cv/BLNpA4++fd7JMqkdE0Pzf7J+Yg==",
+  "dgSpecHash": "OZlJi18wpnPZENtCGqzAbegpVLtN6qtIsXRegIDOd8sn0oqKkJ/iFPmjXdXuo0ceCOjswhPEiCDYD76HDhj6qw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vitto\\source\\repos\\TableroApuestas\\TableroApuestas.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vitto\\.nuget\\packages\\microsoft.jsinterop\\7.0.12\\microsoft.jsinterop.7.0.12.nupkg.sha512",
     "C:\\Users\\vitto\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\vitto\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
     "C:\\Users\\vitto\\.nuget\\packages\\system.data.oledb\\7.0.0\\system.data.oledb.7.0.0.nupkg.sha512",

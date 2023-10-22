@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Configuration;
 using TableroApuestas.Data;
+using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json");
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
 builder.Services.AddScoped(sp =>
 {
     // Obtiene la cadena de conexión desde la configuración

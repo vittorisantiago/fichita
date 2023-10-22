@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.JSInterop" Version="7.0.12" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
   </ItemGroup>
 

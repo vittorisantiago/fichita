@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v7.0": {
       "TableroApuestas/1.0.0": {
         "dependencies": {
+          "Microsoft.JSInterop": "7.0.12",
           "System.Data.OleDb": "7.0.0"
         },
         "runtime": {
           "TableroApuestas.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/7.0.12": {
+        "runtime": {
+          "lib/net7.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1223.47922"
+          }
         }
       },
       "Microsoft.Win32.SystemEvents/7.0.0": {
@@ -155,6 +164,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.JSInterop/7.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AJYoootrG2G5ugU+2oXfGVbb6nh8oams4vTznZQIwJEibaCyKi5Q/9oQuLFG5CWjGllTZeO4Baj3H5EORWnwpw==",
+      "path": "microsoft.jsinterop/7.0.12",
+      "hashPath": "microsoft.jsinterop.7.0.12.nupkg.sha512"
     },
     "Microsoft.Win32.SystemEvents/7.0.0": {
       "type": "package",

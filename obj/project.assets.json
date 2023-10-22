@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Microsoft.JSInterop/7.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Microsoft.JSInterop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.JSInterop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Win32.SystemEvents/7.0.0": {
         "type": "package",
         "compile": {
@@ -213,6 +226,21 @@
     }
   },
   "libraries": {
+    "Microsoft.JSInterop/7.0.12": {
+      "sha512": "AJYoootrG2G5ugU+2oXfGVbb6nh8oams4vTznZQIwJEibaCyKi5Q/9oQuLFG5CWjGllTZeO4Baj3H5EORWnwpw==",
+      "type": "package",
+      "path": "microsoft.jsinterop/7.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.JSInterop.dll",
+        "lib/net7.0/Microsoft.JSInterop.xml",
+        "microsoft.jsinterop.7.0.12.nupkg.sha512",
+        "microsoft.jsinterop.nuspec"
+      ]
+    },
     "Microsoft.Win32.SystemEvents/7.0.0": {
       "sha512": "2nXPrhdAyAzir0gLl8Yy8S5Mnm/uBSQQA7jEsILOS1MTyS7DbmV1NgViMtvV1sfCD1ebITpNwb1NIinKeJgUVQ==",
       "type": "package",
@@ -493,6 +521,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Microsoft.JSInterop >= 7.0.12",
       "System.Data.OleDb >= 7.0.0"
     ]
   },
@@ -541,6 +570,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Microsoft.JSInterop": {
+            "target": "Package",
+            "version": "[7.0.12, )"
+          },
           "System.Data.OleDb": {
             "target": "Package",
             "version": "[7.0.0, )"

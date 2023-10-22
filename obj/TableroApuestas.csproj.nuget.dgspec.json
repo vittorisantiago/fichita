@@ -45,6 +45,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.JSInterop": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[7.0.0, )"
